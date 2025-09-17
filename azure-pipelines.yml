@@ -1,8 +1,9 @@
 trigger: none
 pr:
   branches:
-    include: [ demo ]
-
+    include:
+      - demo
+      
 stages:
 - stage: PR_Validation
   jobs:
