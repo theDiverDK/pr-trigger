@@ -1,0 +1,16 @@
+trigger: none
+pr:
+  branches:
+    include: [ demo ]
+
+stages:
+- stage: PR_Validation
+  jobs:
+  - job: echo_info
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    - bash: |
+        echo "PR target branch: $(System.PullRequest.TargetBranch)"
+        echo "Source branch: $(Build.SourceBranch)"
+        echo "Pipeline file path: $(Build.SourcesDirectory)/azure-pipelines.yml"
